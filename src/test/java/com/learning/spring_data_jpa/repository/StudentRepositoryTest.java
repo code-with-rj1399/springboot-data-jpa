@@ -85,4 +85,10 @@ class StudentRepositoryTest {
         String studentName = studentRepository.getStudentNameByEmail("rajesh@gmail.com");
         System.out.println(studentName);
     }
+
+    @Test
+    public void print_getStudentsByEmailUsingNativeSQLQuery(){
+        Student student = studentRepository.getStudentsByEmailUsingNativeSQLQuery("rajesh@gmail.com");
+        System.out.println(student);
+    }
 }

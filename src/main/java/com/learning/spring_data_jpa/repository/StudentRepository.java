@@ -24,4 +24,10 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
 
     @Query("select s.firstName from Student s where s.emailId = ?1")
     String getStudentNameByEmail(String email);
+
+    @Query(
+            value = "select * from student s where s.email_address = ?1",
+            nativeQuery = true
+    )
+    Student getStudentsByEmailUsingNativeSQLQuery(String email);
 }
