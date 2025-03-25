@@ -40,4 +40,7 @@ public class Student {
             nullable = false
     )
     private String emailId;
+
+    @Embedded
+    private Guardian guardian;
 }
