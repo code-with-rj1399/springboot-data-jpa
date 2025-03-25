@@ -73,4 +73,16 @@ class StudentRepositoryTest {
         List<Student> studentList = studentRepository.findByGuardianName("ramesh1");
         studentList.stream().forEach(System.out::println);
     }
+
+    @Test
+    public void printGetStudentsByEmail(){
+        Student student = studentRepository.getStudentsByEmail("rajesh@gmail.com");
+        System.out.println(student);
+    }
+
+    @Test
+    public void printGetStudentNameByEmail(){
+        String studentName = studentRepository.getStudentNameByEmail("rajesh@gmail.com");
+        System.out.println(studentName);
+    }
 }
