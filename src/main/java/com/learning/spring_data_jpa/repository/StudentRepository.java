@@ -51,6 +51,4 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
             value = "update Student set first_name = ?1 where email_address = ?2"
     )
     int updateStudentNameByEmailId(String name, String emailId);
-
-
 }
