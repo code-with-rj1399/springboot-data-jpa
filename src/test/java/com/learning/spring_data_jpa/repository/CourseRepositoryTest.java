@@ -2,6 +2,7 @@ package com.learning.spring_data_jpa.repository;
 
 import com.learning.spring_data_jpa.entity.Course;
 import com.learning.spring_data_jpa.entity.CourseMaterial;
+import com.learning.spring_data_jpa.entity.Teacher;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
@@ -13,7 +14,6 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
-@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class CourseRepositoryTest {
 
     @Autowired
@@ -22,25 +22,22 @@ class CourseRepositoryTest {
     @Autowired
     CourseMaterialRepository courseMaterialRepository;
 
-    @BeforeAll
-    public void addData(){
-        CourseMaterial courseMaterial = CourseMaterial.builder()
-                .course(Course.builder()
-                        .title("Java")
-                        .credit(100)
-                        .build())
-                .url("http://java.com")
-                .build();
-        courseMaterialRepository.save(courseMaterial);
 
-        courseMaterial = CourseMaterial.builder()
-                .course(Course.builder()
-                        .title("Springboot")
-                        .credit(1001)
+    @Test
+    public void saveCourseWithTeacher(){
+        Course mbaCourse = Course.builder()
+                .title("MBA")
+                .teacher(Teacher.builder()
+                        .firstName("J.K")
+                        .lastName("S")
                         .build())
-                .url("http://java-spt.com")
+//                .courseMaterial(CourseMaterial.builder()
+//                        .url("http://url/of/mba")
+//                        .build())
+                .credit(100)
                 .build();
-        courseMaterialRepository.save(courseMaterial);
+        courseRepository.save(mbaCourse);
+        printCourses();
     }
 
     @Test

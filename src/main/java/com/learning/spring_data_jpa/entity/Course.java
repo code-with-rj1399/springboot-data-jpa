@@ -28,8 +28,17 @@ public class Course {
     private Integer credit;
 
     @OneToOne(
-            mappedBy = "course" //we are mentioned that one-to-one mapping already happened in CourseMaterial on field course.
+            mappedBy = "course"//we are mentioned that one-to-one mapping already happened in CourseMaterial on field course.
     )
-    @JsonBackReference /// Prevents infinite recursion when serializing
     private CourseMaterial courseMaterial;
+
+    @ManyToOne(
+            cascade = CascadeType.ALL,
+            fetch = FetchType.EAGER
+    )
+    @JoinColumn(
+            name = "teacher_id",
+            referencedColumnName = "teacherId"
+    )
+    private Teacher teacher;
 }

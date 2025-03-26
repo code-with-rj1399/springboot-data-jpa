@@ -13,7 +13,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Teacher {
+public class TeacherOneToMany {
     @Id
     @SequenceGenerator(
             name = "teacher_sequence",
@@ -30,13 +30,13 @@ public class Teacher {
 
     private String lastName;
 
-//    @OneToMany(
-//            cascade = CascadeType.ALL,
-//            fetch = FetchType.EAGER
-//    )
-//    @JoinColumn(
-//            name = "teacher_id",
-//            referencedColumnName = "teacherId"
-//    )
-//    private List<Course> courses;
+    @OneToMany(
+            cascade = CascadeType.ALL,
+            fetch = FetchType.EAGER
+    )
+    @JoinColumn(
+            name = "teacher_id",
+            referencedColumnName = "teacherId"
+    )
+    private List<Course> courses;
 }
