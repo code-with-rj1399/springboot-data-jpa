@@ -1,5 +1,6 @@
 package com.learning.spring_data_jpa.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -25,4 +26,10 @@ public class Course {
     private Long courseId;
     private String title;
     private Integer credit;
+
+    @OneToOne(
+            mappedBy = "course" //we are mentioned that one-to-one mapping already happened in CourseMaterial on field course.
+    )
+    @JsonBackReference /// Prevents infinite recursion when serializing
+    private CourseMaterial courseMaterial;
 }

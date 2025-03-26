@@ -30,7 +30,7 @@ class CourseMaterialRepositoryTest {
     @Test
     public void printCourseMaterials(){
         List<CourseMaterial> courseMaterialList = courseMaterialRepository.findAll();
-        courseMaterialList.stream().forEach(System.out::println);
+        courseMaterialList.stream().forEach(System.out::println); //TODO getting stackoverflow exception here, need to work on it.
     }
 
 }
