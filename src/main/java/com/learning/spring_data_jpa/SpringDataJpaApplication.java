@@ -3,6 +3,8 @@ package com.learning.spring_data_jpa;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.util.Hashtable;
+
 @SpringBootApplication
 public class SpringDataJpaApplication {
 
